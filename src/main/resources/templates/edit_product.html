@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Update Category </h1>
+            <div class = "card-body">
+                <form th:action="@{/product/edit/{id}(id=${product.id})}" th:object = "${product}" method="POST">
+                    <div class ="form-group">
+                        <label> Product New Name </label>
+                        <input
+                                type = "text"
+                                name = "name"
+                                th:field = "*{name}"
+                                class = "form-control"
+                                placeholder="Enter Product New Name"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Enter new Price  </label>
+                        <input
+                                type = "number"
+                                th:field = "*{price}"
+                                class = "form-control"
+                                placeholder="Enter Product new Price"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Enter a category id </label>
+                        <input
+                                type = "text"
+                                name = "category.id"
+                                th:field = "*{category.id}"
+                                class = "form-control"
+                                placeholder="Enter Product new Category"
+                        />
+                    </div>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary w-100">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
